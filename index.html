@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="PfJKyJ6HOko9pkMdExjWrLIeudoK-QtUWcvTG6QOWw4" />
+    <link id="dynamic-canonical" rel="canonical" href="https://ahmednabilcivilengineer.github.io/Construction/" />
+    <script>
+      (function () {
+        var cleanUrl = window.location.origin + window.location.pathname
+          .replace(/\/index\.html$/i, "/");
+        if (!cleanUrl.endsWith("/") && !/\.[a-z0-9]+$/i.test(cleanUrl)) {
+          cleanUrl += "/";
+        }
+        var canonicalEl = document.getElementById("dynamic-canonical");
+        if (canonicalEl) {
+          canonicalEl.setAttribute("href", cleanUrl);
+        }
+        window.__CANONICAL_URL__ = cleanUrl;
+      })();
+    </script>
     
     <!-- Primary Meta Tags -->
     <title>Eng. Ahmed Nabil | Construction and Building Engineer</title>
@@ -18,7 +33,7 @@
     <meta property="og:description" content="Portfolio featuring structural modeling, CAD drafting, BIM rebar detailing, and Primavera P6 project control deliverables.">
 
     <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
+    <script id="person-schema" type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
@@ -49,6 +64,18 @@
       ],
       "url": "https://ahmednabilcivilengineer.github.io/Construction/"
     }
+    </script>
+    <script>
+      (function () {
+        var schemaEl = document.getElementById("person-schema");
+        if (schemaEl && window.__CANONICAL_URL__) {
+          try {
+            var data = JSON.parse(schemaEl.textContent);
+            data.url = window.__CANONICAL_URL__;
+            schemaEl.textContent = JSON.stringify(data, null, 2);
+          } catch (e) {}
+        }
+      })();
     </script>
 
     <style>
